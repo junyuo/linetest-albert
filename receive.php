@@ -1,5 +1,5 @@
 <?php
-  echo "hello i'm albert"
+  // echo "hello i'm albert"
   $json_str = file_get_contents('php://input'); // 接收 request body
   $json_obj = json_decode($json_str); // convert to JSON format
 
