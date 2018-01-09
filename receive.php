@@ -5,7 +5,7 @@
 	$sender_userid = $json_obj->events[0]->source->userId;
 	$sender_txt = $json_obj->events[0]->message->text;
  $response = array (
-				"to" => $sender_userid,
+				"replyToken" => $sender_replyToken,
 				"messages" => array (
 					array (
 						"type" => "text",
@@ -19,7 +19,7 @@
  //回傳給line server
 	$header[] = "Content-Type: application/json";
 	$header[] = "Authorization: Bearer yHklpsNRGvLQA5tWPSpR7MpLlWNNS6OvoswjzBx3UlEiVTIsWlEKqQvpjcXfeCHmIYfdJk6/6BKqUCgyXMsFEmoaj6ZDIbbzw3HFCO5TQzmY7TX34FvU85+pTFZGbDm6bBJqsPyJsIkt/kiFVAbjpAdB04t89/1O/w1cDnyilFU=";
-	$ch = curl_init("https://api.line.me/v2/bot/message/push");                                                                      
+	$ch = curl_init("https://api.line.me/v2/bot/message/reply");                                                                      
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));                                                                  
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
